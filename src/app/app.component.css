@@ -1,0 +1,21 @@
+:host ::ng-deep {
+  /* svg.p-progress-spinner-svg {
+    animation-duration: 2s;
+    z-index: 5;
+    position: fixed;
+    top: 0px;
+  } */
+  #spin {
+    animation: p-progress-spinner-rotate 4s linear infinite;
+    height: 20%;
+    transform-origin: center center;
+    width: 50%;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    z-index: 1;
+  }
+  #top {
+    position: relative;
+  }
+}
