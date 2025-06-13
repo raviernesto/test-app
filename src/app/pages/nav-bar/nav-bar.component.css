@@ -1,0 +1,11 @@
+:host ::ng-deep p-menubarsub {
+    width: 85%;
+    display: flex;
+    justify-content: flex-end;
+}
+:host ::ng-deep.p-menubar-start.ng-star-inserted {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* width: 60%; */
+}

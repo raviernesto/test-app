@@ -1,3 +1,4 @@
+<!-- <app-nav-bar></app-nav-bar>
 <div class="card flex justify-content-center">
   <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
     <input pInputText type="text" formControlName="month" placeholder="Month" />
@@ -13,7 +14,6 @@
 </div>
 <br /><br />
 <div id="spin" class="card flex justify-content-center">
-  <p-progressSpinner ariaLabel="loading"  *ngIf="isLoading"></p-progressSpinner>
 </div>
 <div id="top" class="card flex justify-content-center">
   <p-card header="Random Facts" [style]="{ width: '360px' }">
@@ -22,4 +22,6 @@
       {{ info }}
     </p>
   </p-card>
-</div>
+</div> -->
+
+<router-outlet></router-outlet>

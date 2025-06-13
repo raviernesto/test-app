@@ -13,9 +13,12 @@ import { HeadersInterceptor } from './services/headers.interceptor';
 import { ErrorInterceptor } from './services/error.interceptor';
 import { CardModule } from 'primeng/card';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-
+import { DropdownModule } from 'primeng/dropdown';
+import { NavBarComponent } from './pages/nav-bar/nav-bar.component';
+import { MenubarModule } from 'primeng/menubar';
+import { ResumeComponent } from './pages/resume/resume.component';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NavBarComponent, ResumeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -27,7 +30,9 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     ReactiveFormsModule,
     CardModule,
     HttpClientModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    DropdownModule,
+    MenubarModule,
   ],
   providers: [
     {
