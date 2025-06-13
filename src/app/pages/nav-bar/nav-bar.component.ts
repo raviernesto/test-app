@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 @Component({
   selector: 'app-nav-bar',
@@ -6,99 +7,55 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent implements OnInit {
-  items: MenuItem[] | undefined;
-  ngOnInit(): void {
-    this.items = [
-      {
-        label: 'Blog',
-        icon: 'pi pi-fw pi-pencil',
-        items: [
-          {
-            label: 'Left',
-            icon: 'pi pi-fw pi-align-left',
-          },
-          {
-            label: 'Right',
-            icon: 'pi pi-fw pi-align-right',
-          },
-          {
-            label: 'Center',
-            icon: 'pi pi-fw pi-align-center',
-          },
-          {
-            label: 'Justify',
-            icon: 'pi pi-fw pi-align-justify',
-          },
-        ],
-      },
-      {
-        label: 'Terms And Conditions',
-        icon: 'pi pi-fw pi-user',
-        items: [
-          {
-            label: 'New',
-            icon: 'pi pi-fw pi-user-plus',
-          },
-          {
-            label: 'Delete',
-            icon: 'pi pi-fw pi-user-minus',
-          },
-          {
-            label: 'Search',
-            icon: 'pi pi-fw pi-users',
-            items: [
-              {
-                label: 'Filter',
-                icon: 'pi pi-fw pi-filter',
-                items: [
-                  {
-                    label: 'Print',
-                    icon: 'pi pi-fw pi-print',
-                  },
-                ],
-              },
-              {
-                icon: 'pi pi-fw pi-bars',
-                label: 'List',
-              },
-            ],
-          },
-        ],
-      },
-      {
-        label: 'Disclaimer',
-        icon: 'pi pi-fw pi-calendar',
-        items: [
-          {
-            label: 'Edit',
-            icon: 'pi pi-fw pi-pencil',
-            items: [
-              {
-                label: 'Save',
-                icon: 'pi pi-fw pi-calendar-plus',
-              },
-              {
-                label: 'Delete',
-                icon: 'pi pi-fw pi-calendar-minus',
-              },
-            ],
-          },
-          {
-            label: 'Archieve',
-            icon: 'pi pi-fw pi-calendar-times',
-            items: [
-              {
-                label: 'Remove',
-                icon: 'pi pi-fw pi-calendar-minus',
-              },
-            ],
-          },
-        ],
-      },
-      {
-        label: 'Contact Us',
-        icon: 'pi pi-fw pi-power-off',
-      },
-    ];
+  navItems = [
+    {
+      label: 'Home',
+      route: '/',
+    },
+    {
+      label: 'Nasa NEO Browser',
+      route: '/nasa-neo',
+    },
+    {
+      label: 'About',
+      route: '/',
+    },
+    {
+      label: 'Resume',
+      route: '/resume',
+    },
+    {
+      label: 'Contact',
+      subItems: [
+        { label: 'Email', route: '/contact/email' },
+        { label: 'Phone', route: '/contact/phone' },
+      ],
+      route: '/contact',
+    },
+  ];
+  selectedIndex = 0;
+  expandedIndex: number | null = null;
+
+  selectNavItem(index: number, event?: MouseEvent): void {
+    this.selectedIndex = index;
+    const item = this.navItems[index];
+    if (!item.subItems && item.route) {
+      this.router.navigate([item.route]);
+    }
+    if (event) {
+      event.stopPropagation();
+    }
   }
+
+  navigateTo(route: string | undefined, event?: MouseEvent): void {
+    if (route) {
+      this.router.navigate([route]);
+    }
+    if (event) {
+      event.stopPropagation();
+    }
+  }
+
+  constructor(private router: Router) {}
+  ngOnInit(): void {}
 }

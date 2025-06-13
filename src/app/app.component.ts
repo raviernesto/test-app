@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2, Inject } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GlobalService } from './services/global.service';
 import { HttpResponse } from '@angular/common/http';
+import { DOCUMENT } from '@angular/common';
 
 interface City {
   name: string;
@@ -166,7 +167,9 @@ export class AppComponent implements OnInit {
   constructor(
     private primengConfig: PrimeNGConfig,
     private fb: FormBuilder,
-    private globalService: GlobalService
+    private globalService: GlobalService,
+    private renderer: Renderer2,
+    @Inject(DOCUMENT) private document: Document
   ) {}
   filteredPoData: any[] = []; // Array to store filtered data
   filteredPoDatas: any[] = []; // Array to store filtered data
@@ -231,6 +234,18 @@ export class AppComponent implements OnInit {
       { name: 'Istanbul', code: 'IST' },
       { name: 'Paris', code: 'PRS' },
     ];
+
+    // Subscribe to loader state to add/remove 'loading' class on body
+    const loaderService = (window as any).ng?.injector?.get?.('LoaderService');
+    if (loaderService && loaderService.isLoading) {
+      loaderService.isLoading.subscribe((isLoading: boolean) => {
+        if (isLoading) {
+          this.renderer.addClass(this.document.body, 'loading');
+        } else {
+          this.renderer.removeClass(this.document.body, 'loading');
+        }
+      });
+    }
   }
 
   convertArrayToObject(): void {

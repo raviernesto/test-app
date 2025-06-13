@@ -1,0 +1,29 @@
+<div class="container slide-top">
+  <h2>Near Earth Objects (Asteroids)</h2>
+  <div class="container">
+    <div class="row" *ngIf="asteroids.length; else loading">
+      <div class="col-12 col-md-6 mb-4" *ngFor="let asteroid of asteroids">
+        <div class="glass-card card h-100">
+          <div class="card-body">
+            <h5 class="card-title">
+              {{ asteroid.name }} <small>(ID: {{ asteroid.id }})</small>
+            </h5>
+            <p class="card-text">
+              <strong>Estimated Diameter (meters):</strong>
+              {{
+                asteroid.estimated_diameter?.meters?.estimated_diameter_max
+                  | number : "1.0-0"
+              }}
+              <br />
+              <strong>Potentially Hazardous:</strong>
+              {{ asteroid.is_potentially_hazardous_asteroid ? "Yes" : "No" }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #loading>
+    <p>Loading asteroid data...</p>
+  </ng-template>
+</div>

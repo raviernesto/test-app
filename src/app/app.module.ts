@@ -17,8 +17,10 @@ import { DropdownModule } from 'primeng/dropdown';
 import { NavBarComponent } from './pages/nav-bar/nav-bar.component';
 import { MenubarModule } from 'primeng/menubar';
 import { ResumeComponent } from './pages/resume/resume.component';
+import { NasaNeoComponent } from './pages/nasa-neo/nasa-neo.component';
+import { LoaderComponent } from './common/loader/loader.component';
 @NgModule({
-  declarations: [AppComponent, NavBarComponent, ResumeComponent],
+  declarations: [AppComponent, NavBarComponent, ResumeComponent, NasaNeoComponent, LoaderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

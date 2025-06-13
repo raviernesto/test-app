@@ -1,0 +1,10 @@
+{
+  "/neo": {
+    "target": "https://api.nasa.gov/neo/rest/v1",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/neo": ""
+    }
+  }
+}

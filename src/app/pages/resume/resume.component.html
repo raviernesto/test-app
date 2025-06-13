@@ -19,16 +19,31 @@
     <p>{{ summary }}</p>
   </section>
 
-  <section>
-    <h2>Skills</h2>
-    <p>{{ skills.join(', ') }}</p>
-    <!-- OR list them individually for better parsing -->
-    <!--
-    <ul>
-      <li *ngFor="let skill of skills">{{ skill }}</li>
-    </ul>
-    -->
-  </section>
+<section>
+  <h2>Skills</h2>
+  <div class="skills-columns">
+    <div class="skills-column">
+      <ng-container *ngFor="let group of skills; let i = index">
+        <div *ngIf="i % 2 === 0" class="skill-category">
+          <h3>{{ group.category }}</h3>
+          <ul>
+            <li *ngFor="let skill of group.items">{{ skill }}</li>
+          </ul>
+        </div>
+      </ng-container>
+    </div>
+    <div class="skills-column">
+      <ng-container *ngFor="let group of skills; let i = index">
+        <div *ngIf="i % 2 === 1" class="skill-category">
+          <h3>{{ group.category }}</h3>
+          <ul>
+            <li *ngFor="let skill of group.items">{{ skill }}</li>
+          </ul>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</section>
 
   <section>
     <h2>Experience</h2>

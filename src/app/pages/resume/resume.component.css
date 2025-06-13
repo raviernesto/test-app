@@ -5,7 +5,7 @@
   padding: 8px 4px;
   max-width: 700px;
   background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
   border-radius: 8px;
   font-size: 0.85em; /* Slightly increased base font size */
 }
@@ -19,15 +19,16 @@ header {
 }
 
 p {
-    margin: 0 0 4px 0;
-    font-size: 0.85em; /* Slightly increased */
-    color: #555;
+  margin: 0 0 4px 0;
+  font-size: 0.85em; /* Slightly increased */
+  color: #555;
 }
 
-p ,li {
-    margin: 0 0 4px 0;
-    font-size: 0.85em; /* Slightly increased */
-    color: #555;
+p,
+li {
+  margin: 0 0 4px 0;
+  font-size: 0.85em; /* Slightly increased */
+  color: #555;
 }
 
 header h1 {
@@ -47,9 +48,9 @@ header p {
 }
 
 p {
-    margin: 0 0 4px 0;
-    font-size: 0.85em; /* Slightly increased */
-    color: #555;
+  margin: 0 0 4px 0;
+  font-size: 0.85em; /* Slightly increased */
+  color: #555;
 }
 
 .icon {
@@ -124,4 +125,14 @@ a:hover {
 strong {
   font-weight: bold;
   color: #222;
+}
+
+.skills-columns {
+  display: flex;
+  gap: 32px;
+}
+
+.skills-column {
+  flex: 1;
+  min-width: 220px;
 }

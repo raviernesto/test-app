@@ -16,32 +16,36 @@ export class ResumeComponent {
   linkedin = 'https://www.linkedin.com/in/ravishankars123';
 
   // --- Summary ---
-  summary = `Dedicated Angular developer with over 2 years of experience in front-end development, an expert in Angular, and a proven record of delivering applications, as mentioned in the Projects section. I am excited to apply my advanced technical skills and extensive knowledge of web services to contribute effectively to mission-critical projects. Driven and determined associate software engineer with several years of experience building client applications. Offers strong interpersonal and communication skills. Seeking an engineering role at a premier defense and security company that delivers a full range of products and services.`;
+  summary = `Results-driven Angular developer with over 2 years of hands-on experience in building scalable and high-performance front-end applications. Proficient in Angular, TypeScript, and RESTful services, with a proven track record of delivering robust solutions for enterprise clients. Strong collaborator with experience in Agile teams, code reviews, and cross-functional API integration. Recognized for improving user satisfaction, performance, and system security. Seeking a challenging role in a forward-thinking organization to apply technical skills to mission-critical projects.`;
 
   // --- Skills ---
   skills = [
-    'Angular',
-    'HTML',
-    'CSS',
-    'TypeScript',
-    'JavaScript',
-    'Node.js',
-    'Github',
-    'Git',
-    'Primeflex',
-    'Bootstrap',
-    'ADFS',
-    'PrimeNG',
-    'PrimeFlex',
-    'RxJS',
-    'REST API integration',
-    'Angular frameworks',
-    'Object-oriented programming',
-    'Testing and deployment',
-    'Angular Material',
-    'Java',
-    'C programming',
-    'Front-end optimization',
+    {
+      category: '🔧 Programming Languages',
+      items: ['TypeScript', 'JavaScript', 'Java', 'C Programming'],
+    },
+    {
+      category: '🧩 Frameworks & Libraries',
+      items: [
+        'Angular (including Angular Material & Angular frameworks)',
+        'PrimeNG',
+        'PrimeFlex',
+        'Bootstrap',
+        'RxJS',
+      ],
+    },
+    {
+      category: '🌐 Web Technologies',
+      items: ['HTML', 'CSS', 'REST API Integration', 'Front-end Optimization'],
+    },
+    {
+      category: '🛠️ Tools & Platforms',
+      items: ['Node.js', 'Git', 'GitHub', 'ADFS'],
+    },
+    {
+      category: '🧠 Concepts & Methodologies',
+      items: ['Object-Oriented Programming (OOP)', 'Testing and Deployment'],
+    },
   ];
 
   // --- Experience ---
@@ -51,12 +55,12 @@ export class ResumeComponent {
       company: 'Tech Mahindra',
       dates: '02/2022 - Current',
       description: [
-        `Championed the incorporation of human factors principles into the application's user interface, directly leading to a demonstrable and significant 25% upswing in overall user happiness.`,
-        'Optimized JavaScript and Angular codebases, improving front-end performance by 20% while adhering to industry best practices.',
-        'Facilitated seamless cross-team data integration by establishing four REST APIs, leading to being recognized as the most junior member on the team to ship production-level code.',
-        'Enhanced system security by implementing ADFS (Active Directory Federation Services) configurations for 3 enterprise-level applications, increasing security compliance by 40%.',
-        'Actively participated in code reviews, contributing to improved code quality and maintainability.',
-        "Coordinated with back-end engineers to integrate RESTful APIs, enhancing the scalability of the client's digital infrastructure.",
+        `Championed the incorporation of human factors principles into the application's user interface, resulting in a 25% improvement in overall user satisfaction.`,
+        'Optimized JavaScript and Angular codebases, boosting front-end performance by 20% through best practices and modular design.',
+        'Developed and deployed 4 REST APIs, enabling seamless cross-team data integration and accelerating project delivery by 25%; recognized as the youngest team member to ship production-ready code.',
+        'Implemented ADFS configurations for three enterprise applications, enhancing security compliance by 40% and reducing access-related issues.',
+        'Reviewed over 40+ pull requests, identifying defects early and improving front-end code quality by 15%, while mentoring junior developers on Angular best practices.',
+        'Collaborated with 3+ backend teams to integrate scalable RESTful APIs, resulting in a 2x improvement in application load handling and 30% boost in system responsiveness.',
       ],
     },
     // Add more experience entries here if applicable
@@ -78,7 +82,7 @@ export class ResumeComponent {
         'Led efforts in migrating applications from Pivotal Cloud Foundry (PCF) to Google Cloud Platform (GCP) for Ford',
         'Collaborated with clients to gather requirements and develop scalable applications.',
         'Identified and resolved critical issues to enhance system performance.',
-        'Delivered client change requests within tight deadlines',
+        'Presented client-requested changes on time, aligning with project milestones.',
       ],
     },
     {
@@ -89,7 +93,7 @@ export class ResumeComponent {
         'Played a key role in migrating applications from Pivotal Cloud Foundry (PCF) to Google Cloud Platform (GCP).',
         'Conducted requirement analysis, development, and testing.',
         'Streamlined issue identification and resolution to optimize workflow',
-        'Ensured timely delivery of client change requests, contributing to project success',
+        'Provided timely implementation of client requests, supporting project success and continuity.',
       ],
     },
     {
@@ -97,7 +101,6 @@ export class ResumeComponent {
       technologies:
         'JSON, RESTful API, TypeScript, JavaScript, CSS, HTML, Angular 16+, ADFS, PrimeNG, Bootstrap, Git',
       description: [
-        'Assisted in the migration from Pivotal Cloud Foundry (PCF) to Google Cloud Platform (GCP), working closely with clients.',
         'Developed, tested, and debugged applications to maintain operational efficiency.',
         'Provided quick resolutions to critical issues, improving the user experience.',
         'Managed and executed client change requests, adhering to deadlines.',
@@ -108,10 +111,9 @@ export class ResumeComponent {
       technologies:
         'Angular 10+, PrimeNG, Bootstrap, CSS, HTML, JSON, RESTful API, TypeScript, and JavaScript',
       description: [
-        'Contributed to the Ford application migration from Pivotal Cloud Foundry (PCF) to Google Cloud Platform (GCP)',
         'Developed and tested scalable applications based on client needs',
         'Debugged and resolved system errors, ensuring smooth functionality',
-        'Successfully delivered client-requested modifications within required timeframes',
+        'Distributed critical client updates within scheduled timeframes, maintaining service reliability.',
       ],
     },
     // Add more project entries
@@ -154,6 +156,6 @@ export class ResumeComponent {
     'Professional Cloud Developer - Google',
     'Introduction to Generative AI - Google',
     'Google Cloud Fundamentals: Core Infrastructure - Google',
-    'Javascript -',
+    'Github Copilot - NAD',
   ];
 }

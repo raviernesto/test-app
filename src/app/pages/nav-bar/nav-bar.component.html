@@ -1,13 +1,23 @@
-<div class="card">
-  <p-menubar [model]="items">
-    <ng-template pTemplate="start">
-      <img
-        src="/assets/images.png"
-        height="40"
-        class="p-mr-2"
-        alt="brand logo"
-      />
-      <h3>Global Facts</h3>
-    </ng-template>
-  ></p-menubar>
-</div>
+<nav class="glass-navbar">
+  <ul>
+    <li
+      *ngFor="let item of navItems; let i = index"
+      [class.selected]="i === selectedIndex"
+      (mouseenter)="expandedIndex = i"
+      (mouseleave)="expandedIndex = null"
+      (click)="selectNavItem(i, $event)"
+      style="position: relative; cursor: pointer"
+    >
+      <span>{{ item.label }}</span>
+      <span *ngIf="item.subItems" style="margin-left: 5px">▼</span>
+      <ul *ngIf="expandedIndex == i && item.subItems" class="glass-dropdown">
+        <li
+          *ngFor="let sub of item.subItems"
+          (click)="navigateTo(sub.route, $event)"
+        >
+          {{ sub.label }}
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
