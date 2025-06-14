@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Quicksand:wght@400;700&display=swap');
+
+body, .apod-card, .header, .card-title, .card-text {
+  font-family: 'Montserrat', 'Quicksand', Arial, Helvetica, sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.header {
+  font-weight: 700;
+  font-style: italic;
+  color: #222e3a;
+  text-shadow: 0 2px 8px rgba(255,255,255,0.15);
+  font-size: 1.8em;
+  font-family: sans-serif, arial;
+  font-weight: bolder;
+}
+
+.apod-card {
+  background: linear-gradient(135deg, #fff 60%, #e3eafc 100%);
+  box-shadow: 0 8px 32px 0 rgba(25, 118, 210, 0.18), 0 1.5px 8px 0 rgba(25, 118, 210, 0.10);
+  border-radius: 2.5rem 0.5rem 2.5rem 0.5rem / 0.5rem 2.5rem 0.5rem 2.5rem;
+  border: 2.5px solid #1976d2;
+  padding: 1.2rem 1.3rem 1.2rem 1.3rem;
+  margin: 1.2rem 0;
+  color: #222e3a;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.4s, transform 0.3s;
+  list-style: none;
+  transform: translateY(0) scale(1);
+}
+.apod-card::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, #1976d2 0%, #e3eafc 80%, transparent 100%);
+  opacity: 0.18;
+  z-index: 1;
+  pointer-events: none;
+}
+.apod-card::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, #ffb300 0%, #fff 80%, transparent 100%);
+  opacity: 0.13;
+  z-index: 1;
+  pointer-events: none;
+}
+.apod-card:hover {
+  box-shadow: 0 16px 48px 0 rgba(25, 118, 210, 0.25), 0 4px 24px 0 rgba(25, 118, 210, 0.13);
+  transform: translateY(-8px) scale(1.025) rotate(-1deg);
+  border-color: #ffb300;
+}
+
+.apod-card .card-title {
+  font-size: 1.25em;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #1976d2;
+  margin-bottom: 0.4rem;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 12px #e3eafc, 0 1px 0 #fff;
+}
+
+.apod-card .card-text {
+  font-size: 0.95em;
+  color: #222e3a;
+  z-index: 2;
+  position: relative;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+.apod-card .apod-meta {
+  font-size: 0.95em;
+  color: #1976d2;
+  z-index: 2;
+  position: relative;
+  margin-top: 0.7em;
+}
+
+.apod-card .apod-image {
+  border-radius: 1.5em;
+  box-shadow: 0 4px 24px 0 rgba(25, 118, 210, 0.13);
+  margin-bottom: 0.7em;
+  max-height: 320px;
+  object-fit: cover;
+  border: 2px solid #e3eafc;
+  background: #fff;
+}
+
+.apod-card .apod-video {
+  border-radius: 1.5em;
+  box-shadow: 0 4px 24px 0 rgba(25, 118, 210, 0.13);
+  margin-bottom: 0.7em;
+  border: 2px solid #e3eafc;
+  background: #fff;
+}
+
+.apod-loader {
+  text-align: center;
+  color: #1976d2;
+  font-size: 1.2em;
+  font-weight: 600;
+  margin: 2em 0;
+}
+
+.apod-error {
+  text-align: center;
+  color: #d32f2f;
+  font-size: 1.1em;
+  font-weight: 600;
+  margin: 2em 0;
+}
+
+.apod-error-creative {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.18);
+  border: 2px solid #ffb300;
+  border-radius: 1.5em;
+  box-shadow: 0 8px 32px 0 rgba(25, 118, 210, 0.13), 0 2px 12px #ffe3e3;
+  padding: 1em;
+  margin: 2em 0;
+  color: #d32f2f;
+  font-family: 'Montserrat', 'Quicksand', Arial, Helvetica, sans-serif;
+  position: relative;
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  overflow: hidden;
+}
+.apod-error-creative::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 90px;
+  height: 90px;
+  background: radial-gradient(circle, #ffb300 0%, #fff 80%, transparent 100%);
+  opacity: 0.13;
+  z-index: 1;
+  pointer-events: none;
+}
+.apod-error-creative::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, #1976d2 0%, #e3eafc 80%, transparent 100%);
+  opacity: 0.13;
+  z-index: 1;
+  pointer-events: none;
+}
+.apod-error-icon {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+  z-index: 2;
+}
+.apod-error-title {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #ff9800;
+  margin-bottom: 0.3em;
+  z-index: 2;
+}
+.apod-error-message {
+  font-size: 1.1em;
+  color: #d32f2f;
+  margin-bottom: 0.5em;
+  text-align: center;
+  z-index: 2;
+}
+.apod-error-tip {
+  font-size: 0.98em;
+  color: #1976d2;
+  text-align: center;
+  margin-top: 0.2em;
+  z-index: 2;
+}
+
+form {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 1.2em;
+  box-shadow: 0 8px 32px 0 rgba(25, 118, 210, 0.18), 0 2px 12px #e3eafc, 0 0 0 4px #e3eafc;
+  padding: 1.2em 2em 1em 2em;
+  margin-bottom: 2em;
+  display: flex;
+  gap: 1em;
+  align-items: flex-end;
+  position: relative;
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  overflow: hidden;
+  /* border: 2.5px solid #1976d2; */
+}
+form::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, #1976d2 0%, #e3eafc 80%, transparent 100%);
+  opacity: 0.13;
+  z-index: 1;
+  pointer-events: none;
+}
+form::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: -15px;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, #ffb300 0%, #fff 80%, transparent 100%);
+  opacity: 0.13;
+  z-index: 1;
+  pointer-events: none;
+}
+form label {
+  color: #1976d2;
+  font-weight: 600;
+  margin-bottom: 0.3em;
+  z-index: 2;
+}
+form input[type="date"] {
+  border: 1.5px solid #e3eafc;
+  border-radius: 0.7em;
+  padding: 0.4em 0.8em;
+  font-size: 1em;
+  outline: none;
+  transition: border 0.2s;
+  z-index: 2;
+  background: rgba(255,255,255,0.7);
+  box-shadow: 0 1px 4px #e3eafc;
+}
+form input[type="date"]:focus {
+  border: 1.5px solid #1976d2;
+}
+form button {
+  background: linear-gradient(90deg, #1976d2 0%, #ffb300 100%);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 2em;
+  padding: 0.5em 1.5em;
+  font-size: 1em;
+  box-shadow: 0 2px 8px 0 rgba(25, 118, 210, 0.10);
+  transition: background 0.3s, color 0.3s;
+  cursor: pointer;
+  z-index: 2;
+}
+form button:hover {
+  background: linear-gradient(90deg, #ffb300 0%, #1976d2 100%);
+  color: #fffde7;
+}
+form:focus-within {
+  border-color: #ffb300;
+  box-shadow: 0 0 0 3px #ffe3b3, 0 8px 32px 0 rgba(25, 118, 210, 0.18), 0 2px 12px #e3eafc;
+}
+@media (max-width: 768px) {
+  .apod-card {
+    padding: 0.7rem 0.5rem;
+    border-radius: 1.2em;
+  }
+  form {
+    flex-direction: column;
+    gap: 0.7em;
+    padding: 1em;
+  }
+}
+
+.goku-cloud-card {
+  display: inline-block; /* Or 'block' depending on layout */
+  background-color: #fff; /* White background */
+  border: 2px solid #333; /* Dark border */
+  border-radius: 20px; /* Rounded corners */
+  padding: 15px 20px; /* Space inside the bubble */
+  margin-top: 15px; /* Space above the bubble */
+  font-family: 'Arial', sans-serif; /* Or your chosen readable font */
+  color: #333; /* Text color */
+  max-width: 30em; /* Prevent it from getting too wide */
+  text-align: center; /* Center the text */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Optional subtle shadow */
+  line-height: 1.4; /* Improve readability */
+}

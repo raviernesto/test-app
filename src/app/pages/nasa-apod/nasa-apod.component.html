@@ -1,0 +1,132 @@
+<div class="slide-top">
+  <h2 class="header mt-3 ml-4">Astronomy Picture of the Day (APOD)</h2>
+  <form
+    (ngSubmit)="fetchApodsByDateRange(startDate.value, endDate.value)"
+    style="margin: 1em; display: flex; gap: 1em; align-items: flex-end"
+  >
+    <div>
+      <label for="startDate">Start Date:</label>
+      <input
+        #startDate
+        type="date"
+        id="startDate"
+        class="form-control"
+        required
+      />
+    </div>
+    <div>
+      <label for="endDate">End Date:</label>
+      <input #endDate type="date" id="endDate" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Get Range</button>
+  </form>
+
+  <div style="margin: 1em" *ngIf="error" class="apod-error-creative">
+    <div class="goku-cloud-card">🚫🪐{{ error }}</div>
+    <img
+      src="../../../assets/goku.png"
+      alt="Vegeta Scream"
+      style="
+        width: 200px;
+        height: 300px;
+        vertical-align: middle;
+        margin-right: 4px;
+      "
+      title="Small Asteroid!"
+    />
+  </div>
+
+  <div *ngIf="apods && apods.length" class="apod-range-list row">
+    <div class="col-12 col-md-6 col-lg-4 mb-4" *ngFor="let apod of apods">
+      <div class="apod-card card h-100">
+        <div class="card-body">
+          <h5 class="card-title" style="cursor: pointer" [title]="apod.title">
+            {{ apod.title }}
+          </h5>
+          <div
+            class="apod-image-container"
+            style="text-align: center; margin-bottom: 1em"
+          >
+            <img
+              *ngIf="apod.media_type === 'image'"
+              [src]="apod.url"
+              [alt]="apod.title"
+              class="apod-image"
+              style="
+                max-width: 100%;
+                border-radius: 1.2em;
+                box-shadow: 0 2px 12px #e3eafc;
+              "
+            />
+            <iframe
+              *ngIf="apod.media_type === 'video'"
+              [src]="apod.url"
+              frameborder="0"
+              allowfullscreen
+              class="apod-video"
+              style="width: 100%; min-height: 300px; border-radius: 1.2em"
+            ></iframe>
+          </div>
+          <p class="card-text" style="font-size: 1.1em">
+            {{ apod.explanation }}
+          </p>
+          <div class="apod-meta" style="margin-top: 1em">
+            <span style="color: #1976d2; font-weight: 600">Date:</span>
+            {{ apod.date }}<br />
+            <span
+              *ngIf="apod.copyright"
+              style="color: #ff9800; font-weight: 600"
+              >Copyright:</span
+            >
+            <span *ngIf="apod.copyright">{{ apod.copyright }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!apods || !apods.length">
+    <div *ngIf="apod" class="apod-card card h-100">
+      <div class="card-body">
+        <h5 class="card-title" style="cursor: pointer" [title]="apod.title">
+          {{ apod.title }}
+        </h5>
+        <div
+          class="apod-image-container"
+          style="text-align: center; margin-bottom: 1em"
+        >
+          <img
+            *ngIf="apod.media_type === 'image'"
+            [src]="apod.url"
+            [alt]="apod.title"
+            class="apod-image"
+            style="
+              max-width: 100%;
+              border-radius: 1.2em;
+              box-shadow: 0 2px 12px #e3eafc;
+            "
+          />
+          <iframe
+            *ngIf="apod.media_type === 'video'"
+            [src]="apod.url"
+            frameborder="0"
+            allowfullscreen
+            class="apod-video"
+            style="width: 100%; min-height: 300px; border-radius: 1.2em"
+          ></iframe>
+        </div>
+        <p class="card-text" style="font-size: 1.1em">
+          {{ apod.explanation }}
+        </p>
+        <div class="apod-meta" style="margin-top: 1em">
+          <span style="color: #1976d2; font-weight: 600">Date:</span>
+          {{ apod.date }}<br />
+          <span *ngIf="apod.copyright" style="color: #ff9800; font-weight: 600"
+            >Copyright:</span
+          >
+          <span *ngIf="apod.copyright">{{ apod.copyright }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

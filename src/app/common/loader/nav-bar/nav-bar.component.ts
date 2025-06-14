@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 @Component({
@@ -13,7 +13,11 @@ export class NavBarComponent implements OnInit {
       route: '/',
     },
     {
-      label: 'Nasa NEO Browser',
+      label: 'Nasa WEB APIs',
+      subItems: [
+        { label: 'Nasa NEO Browser', route: '/nasa-neo' },
+        { label: 'Nasa APOD', route: '/nasa-apod' },
+      ],
       route: '/nasa-neo',
     },
     {
@@ -35,9 +39,19 @@ export class NavBarComponent implements OnInit {
   ];
   selectedIndex = 0;
   expandedIndex: number | null = null;
+  isMenuOpen = false;
+
+  @HostBinding('class.open') get open() {
+    return this.isMenuOpen;
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 
   selectNavItem(index: number, event?: MouseEvent): void {
     this.selectedIndex = index;
+    this.isMenuOpen = false;
     const item = this.navItems[index];
     if (!item.subItems && item.route) {
       this.router.navigate([item.route]);

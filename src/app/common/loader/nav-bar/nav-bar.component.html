@@ -1,4 +1,9 @@
-<nav class="glass-navbar">
+<nav class="glass-navbar" [class.open]="isMenuOpen">
+  <div class="navbar-toggle" (click)="toggleMenu()">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
   <ul>
     <li
       *ngFor="let item of navItems; let i = index"

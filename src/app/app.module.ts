@@ -14,13 +14,15 @@ import { ErrorInterceptor } from './services/error.interceptor';
 import { CardModule } from 'primeng/card';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { DropdownModule } from 'primeng/dropdown';
-import { NavBarComponent } from './pages/nav-bar/nav-bar.component';
+import { NavBarComponent } from './common/loader/nav-bar/nav-bar.component';
 import { MenubarModule } from 'primeng/menubar';
 import { ResumeComponent } from './pages/resume/resume.component';
 import { NasaNeoComponent } from './pages/nasa-neo/nasa-neo.component';
 import { LoaderComponent } from './common/loader/loader.component';
+import { NasaApodComponent } from './pages/nasa-apod/nasa-apod.component';
+import { DragonBallComponent } from './pages/dragon-ball/dragon-ball.component';
 @NgModule({
-  declarations: [AppComponent, NavBarComponent, ResumeComponent, NasaNeoComponent, LoaderComponent],
+  declarations: [AppComponent, NavBarComponent, ResumeComponent, NasaNeoComponent, LoaderComponent, NasaApodComponent, DragonBallComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
