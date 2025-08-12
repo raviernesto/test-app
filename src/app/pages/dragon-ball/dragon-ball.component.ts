@@ -7,6 +7,8 @@ import { DragonBallService } from 'src/app/services/dragonBall-services';
   styleUrls: ['./dragon-ball.component.css']
 })
 export class DragonBallComponent implements OnInit, AfterViewInit {
+  private intersectionObserver?: IntersectionObserver;
+
   constructor(
     private readonly dragonBallApiService: DragonBallService,
     private elementRef: ElementRef
@@ -43,35 +45,52 @@ export class DragonBallComponent implements OnInit, AfterViewInit {
   }
 
   setupScrollObserver() {
+    // Cleanup existing observer
+    if (this.intersectionObserver) {
+      this.intersectionObserver.disconnect();
+    }
+
+    // Check if device supports touch (mobile/tablet)
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+    if (!isTouchDevice) {
+      console.log('Desktop device detected, skipping mobile scroll observer');
+      return; // Skip mobile effects on desktop
+    }
+
     const options = {
       root: null,
-      rootMargin: '0px',
-      threshold: 0.3 // Trigger when 30% of the card is visible
+      rootMargin: '-10% 0px -10% 0px', // More precise triggering
+      threshold: [0.1, 0.5, 0.9] // Multiple thresholds for better responsiveness
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    this.intersectionObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
+        const card = entry.target as HTMLElement;
+        
         if (entry.isIntersecting) {
-          // Add mobile-hover class when card comes into view
-          entry.target.classList.add('mobile-hover');
-          console.log('Card entered view, added mobile-hover class'); // Debug log
+          // Add mobile-hover class when card comes into view with a slight delay for better effect
+          setTimeout(() => {
+            card.classList.add('mobile-hover');
+            console.log('Mobile device: Card entered view, added mobile-hover class');
+          }, 150);
         } else {
           // Remove mobile-hover class when card goes out of view
-          entry.target.classList.remove('mobile-hover');
-          console.log('Card left view, removed mobile-hover class'); // Debug log
+          card.classList.remove('mobile-hover');
+          console.log('Mobile device: Card left view, removed mobile-hover class');
         }
       });
     }, options);
 
     // Observe all character cards
     const cards = this.elementRef.nativeElement.querySelectorAll('.character-card');
-    console.log(`Found ${cards.length} cards to observe`); // Debug log
+    console.log(`Touch device detected. Found ${cards.length} cards to observe`);
     
     if (cards.length > 0) {
-      cards.forEach((card: Element) => observer.observe(card));
-      console.log('Scroll observer set up successfully'); // Debug log
+      cards.forEach((card: Element) => this.intersectionObserver!.observe(card));
+      console.log('Mobile scroll observer set up successfully for touch device');
     } else {
-      console.warn('No character cards found for scroll observer');
+      console.warn('No character cards found for mobile scroll observer');
     }
   }
 
