@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ResumeComponent } from './pages/resume/resume.component';
 import { NasaNeoComponent } from './pages/nasa-neo/nasa-neo.component';
 import { NasaApodComponent } from './pages/nasa-apod/nasa-apod.component';
+import { DragonBallComponent } from './pages/dragon-ball/dragon-ball.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,11 @@ const routes: Routes = [
     path: 'nasa-apod',
     component: NasaApodComponent,
     title: 'Nasa APOD'
+  },
+   {
+    path: 'dragon-ball',
+    component: DragonBallComponent,
+    title: 'Dragon Ball Characters'
   }
 ];
 

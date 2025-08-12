@@ -10,7 +10,7 @@ export class NavBarComponent implements OnInit {
   navItems = [
     {
       label: 'Home',
-      route: '/',
+      route: '/dragon-ball',
     },
     {
       label: 'Nasa WEB APIs',

@@ -8,6 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./resume.component.css'], // This points to the CSS below
 })
 export class ResumeComponent {
+  //Access
+  access = false;
+  accessInfo = 'Hey there! This resume is kinda like my secret training techniques - it\'s private! But don\'t worry, if you really wanna see it, just contact me and I\'ll be happy to share! I promise it\'ll be worth the wait, just like when I finally master a new Kamehameha! Hehe!'
+  gokuImagePath = './assets/goku.png';
   // --- Personal Info ---
   name = 'Ravi Shankar. S';
   email = 'raviernesto123@gmail.com';

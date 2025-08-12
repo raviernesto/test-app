@@ -1,1 +1,61 @@
-<p>dragon-ball works!</p>
+<div class="dragon-ball-container">
+  <h1>Dragon Ball Characters</h1>
+
+  <div class="filter-section">
+    <label for="race-select">Filter by Race:</label>
+    <select 
+      id="race-select" 
+      [value]="selectedRace" 
+      (change)="onRaceChange($event)"
+      class="race-filter">
+      <option value="">All Races</option>
+      <option *ngFor="let race of availableRaces" [value]="race">{{ race }}</option>
+    </select>
+    <button 
+      *ngIf="selectedRace" 
+      (click)="clearFilter()" 
+      class="clear-filter-btn">
+      Clear Filter
+    </button>
+  </div>
+
+  <div *ngIf="isLoading" class="loading">
+    <p>Loading characters...</p>
+  </div>
+  
+  <div *ngIf="!isLoading && filteredDragonBalls.length > 0" class="characters-grid">
+    <div *ngFor="let character of filteredDragonBalls" class="character-card">
+      <div class="character-image">
+        <img [src]="character.image" [alt]="character.name" />
+      </div>
+      <div class="character-info">
+        <h3>{{ character.name }}</h3>
+        <p><strong>Race:</strong> {{ character.race }}</p>
+        <p><strong>Gender:</strong> {{ character.gender }}</p>
+        <p><strong>Ki:</strong> {{ character.ki }}</p>
+        <p><strong>Max Ki:</strong> {{ character.maxKi }}</p>
+        <p><strong>Affiliation:</strong> {{ character.affiliation }}</p>
+        <!-- <p class="description">{{ character.description }}</p> -->
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="!isLoading && filteredDragonBalls.length === 0 && selectedRace" class="no-data">
+    <p>No characters found for race: <strong>{{ selectedRace }}</strong></p>
+    <button (click)="clearFilter()" class="clear-filter-btn">Show All Characters</button>
+  </div>
+
+  <div *ngIf="!isLoading && dragonBalls.length === 0" class="no-data">
+    <p>No characters found.</p>
+  </div>
+  
+  <div *ngIf="!isLoading && filteredDragonBalls.length > 0" class="results-info">
+    <p>Showing {{ filteredDragonBalls.length }} of {{ dragonBalls.length }} characters
+      <span *ngIf="selectedRace"> (filtered by {{ selectedRace }})</span>
+    </p>
+  </div>
+  
+  <div *ngIf="!isLoading" class="pagination-info">
+    <p>Page {{ currentPage }} of {{ totalPages }}</p>
+  </div>
+</div>

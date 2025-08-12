@@ -12,6 +12,7 @@ export class NasaApodComponent implements OnInit {
   loading = false;
   error: string | null = null;
   apods: any[] = [];
+  gokuImagePath = './assets/goku.png';
 
   constructor(private apodService: NasaApodService, private loader: LoaderService) {}
 

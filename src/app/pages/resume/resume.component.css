@@ -136,3 +136,19 @@ strong {
   flex: 1;
   min-width: 220px;
 }
+
+
+.goku-cloud-card {
+  display: inline-block; /* Or 'block' depending on layout */
+  background-color: #fff; /* White background */
+  border: 2px solid #333; /* Dark border */
+  border-radius: 20px; /* Rounded corners */
+  padding: 15px 20px; /* Space inside the bubble */
+  margin-top: 15px; /* Space above the bubble */
+  font-family: 'Arial', sans-serif; /* Or your chosen readable font */
+  color: #333; /* Text color */
+  max-width: 30em; /* Prevent it from getting too wide */
+  text-align: center; /* Center the text */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Optional subtle shadow */
+  line-height: 1.4; /* Improve readability */
+}

@@ -21,19 +21,17 @@
     <button type="submit" class="btn btn-primary">Get Range</button>
   </form>
 
-  <div style="margin: 1em" *ngIf="error" class="apod-error-creative">
+  <div style="margin: 1em;    display: flex
+  ;
+      align-items: center;
+      justify-content: center;" *ngIf="error" >
     <div class="goku-cloud-card">🚫🪐{{ error }}</div>
-    <img
-      src="../../../assets/goku.png"
-      alt="Vegeta Scream"
-      style="
-        width: 200px;
-        height: 300px;
-        vertical-align: middle;
-        margin-right: 4px;
-      "
-      title="Small Asteroid!"
-    />
+    <img [src]="gokuImagePath" alt="Goku" style="
+          width: 200px;
+          height: 300px;
+          vertical-align: middle;
+          margin-right: 4px;
+        " title="Goku!" />
   </div>
 
   <div *ngIf="apods && apods.length" class="apod-range-list row">
