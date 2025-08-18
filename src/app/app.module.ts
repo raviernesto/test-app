@@ -21,6 +21,8 @@ import { NasaNeoComponent } from './pages/nasa-neo/nasa-neo.component';
 import { LoaderComponent } from './common/loader/loader.component';
 import { NasaApodComponent } from './pages/nasa-apod/nasa-apod.component';
 import { DragonBallComponent } from './pages/dragon-ball/dragon-ball.component';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './Store/store.reducer';
 @NgModule({
   declarations: [AppComponent, NavBarComponent, ResumeComponent, NasaNeoComponent, LoaderComponent, NasaApodComponent, DragonBallComponent],
   imports: [
@@ -37,6 +39,8 @@ import { DragonBallComponent } from './pages/dragon-ball/dragon-ball.component';
     ProgressSpinnerModule,
     DropdownModule,
     MenubarModule,
+    StoreModule.forRoot(({ count: counterReducer })),
+    
   ],
   providers: [
     {

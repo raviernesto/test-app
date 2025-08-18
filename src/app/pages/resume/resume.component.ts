@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class ResumeComponent {
   //Access
-  access = false;
+  access = true;
   accessInfo = 'Hey there! This resume is kinda like my secret training techniques - it\'s private! But don\'t worry, if you really wanna see it, just contact me and I\'ll be happy to share! I promise it\'ll be worth the wait, just like when I finally master a new Kamehameha! Hehe!'
   gokuImagePath = './assets/goku.png';
   // --- Personal Info ---
@@ -20,7 +20,7 @@ export class ResumeComponent {
   linkedin = 'https://www.linkedin.com/in/ravishankars123';
 
   // --- Summary ---
-  summary = `Results-driven Angular developer with over 2 years of hands-on experience in building scalable and high-performance front-end applications. Proficient in Angular, TypeScript, and RESTful services, with a proven track record of delivering robust solutions for enterprise clients. Strong collaborator with experience in Agile teams, code reviews, and cross-functional API integration. Recognized for improving user satisfaction, performance, and system security. Seeking a challenging role in a forward-thinking organization to apply technical skills to mission-critical projects.`;
+  summary = `Results-driven Angular developer with over 3 years of hands-on experience in building scalable and high-performance front-end applications. Proficient in Angular, TypeScript, and RESTful services, with a proven track record of delivering robust solutions for enterprise clients. Strong collaborator with experience in Agile teams, code reviews, and cross-functional API integration. Recognized for improving user satisfaction, performance, and system security. Seeking a challenging role in a forward-thinking organization to apply technical skills to mission-critical projects.`;
 
   // --- Skills ---
   skills = [
@@ -36,6 +36,7 @@ export class ResumeComponent {
         'PrimeFlex',
         'Bootstrap',
         'RxJS',
+        "NgRx"
       ],
     },
     {
@@ -81,7 +82,7 @@ export class ResumeComponent {
     {
       name: 'Supplier information metrics (SIM)',
       technologies:
-        'SonarQube, StyleLint, FOSSA, Angular Signals, TypeScript, JavaScript, CSS, HTML, JSON, RESTful API, Angular 14+, ADFS, PrimeNG, Bootstrap, Git',
+        'SonarQube, StyleLint, FOSSA, Angular Signals, TypeScript, JavaScript, CSS, HTML, JSON, RESTful API, Angular 16+, ADFS, PrimeNG, Bootstrap, Git',
       description: [
         'Led efforts in migrating applications from Pivotal Cloud Foundry (PCF) to Google Cloud Platform (GCP) for Ford',
         'Collaborated with clients to gather requirements and develop scalable applications.',
