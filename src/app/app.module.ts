@@ -23,8 +23,14 @@ import { NasaApodComponent } from './pages/nasa-apod/nasa-apod.component';
 import { DragonBallComponent } from './pages/dragon-ball/dragon-ball.component';
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './Store/store.reducer';
+import { CounterComponent } from './pages/counter/counter.component';
+import { AboutComponent } from './pages/about/about.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { ChatComponent } from './pages/pages/chat/chat.component';
 @NgModule({
-  declarations: [AppComponent, NavBarComponent, ResumeComponent, NasaNeoComponent, LoaderComponent, NasaApodComponent, DragonBallComponent],
+  declarations: [AppComponent, NavBarComponent, ResumeComponent, NasaNeoComponent, LoaderComponent, NasaApodComponent, DragonBallComponent, CounterComponent, AboutComponent, ChatComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -39,10 +45,13 @@ import { counterReducer } from './Store/store.reducer';
     ProgressSpinnerModule,
     DropdownModule,
     MenubarModule,
+    MatSnackBarModule,
+  ToastModule,
     StoreModule.forRoot(({ count: counterReducer })),
     
   ],
   providers: [
+  MessageService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HeadersInterceptor,

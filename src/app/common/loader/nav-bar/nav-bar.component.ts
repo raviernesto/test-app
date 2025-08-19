@@ -22,7 +22,7 @@ export class NavBarComponent implements OnInit {
     },
     {
       label: 'About',
-      route: '/',
+      route: '/about',
     },
     {
       label: 'Resume',

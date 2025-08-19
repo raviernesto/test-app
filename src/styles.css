@@ -12,3 +12,23 @@ body {
   background-attachment: fixed;
   background-position: center;
 }
+
+* {
+  box-sizing: border-box;
+}
+.row {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.p-toast {
+  z-index: 9999 !important;
+}

@@ -1,0 +1,12 @@
+/* Prevent horizontal scroll and ensure card fits viewport */
+:host {
+  display: block;
+  width: 100%;
+  /* overflow-x: hidden; */
+}
+
+.counter{
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
