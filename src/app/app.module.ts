@@ -28,9 +28,8 @@ import { AboutComponent } from './pages/about/about.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-import { ChatComponent } from './pages/pages/chat/chat.component';
 @NgModule({
-  declarations: [AppComponent, NavBarComponent, ResumeComponent, NasaNeoComponent, LoaderComponent, NasaApodComponent, DragonBallComponent, CounterComponent, AboutComponent, ChatComponent],
+  declarations: [AppComponent, NavBarComponent, ResumeComponent, NasaNeoComponent, LoaderComponent, NasaApodComponent, DragonBallComponent, CounterComponent, AboutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
