@@ -1,0 +1,18 @@
+<div class="p-3">
+  <div
+    class="code-snippet-container small"
+    *ngFor="let item of codeSnipperData; let i = index"
+  >
+    <div class="snippet-header">
+      <div>
+        <span class="snippet-title">{{ i+1 }}.&nbsp;{{ item.title }}</span>
+        <div class="snippet-desc">{{ item.description }}</div>
+      </div>
+      <button class="copy-btn" (click)="copyCode(codeBlock)">
+        <span class="material-icons">content_copy</span> Copy
+      </button>
+    </div>
+    <pre class="snippet-pre"><code #codeBlock>{{ item.code }}</code></pre>
+    <div *ngIf="copied" class="copy-feedback">Copied!</div>
+  </div>
+</div>

@@ -28,8 +28,10 @@ import { AboutComponent } from './pages/about/about.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { CodeSnippetComponent } from './pages/code-snippet/code-snippet.component';
+import { ClipboardModule } from 'ngx-clipboard';
 @NgModule({
-  declarations: [AppComponent, NavBarComponent, ResumeComponent, NasaNeoComponent, LoaderComponent, NasaApodComponent, DragonBallComponent, CounterComponent, AboutComponent],
+  declarations: [AppComponent, NavBarComponent, ResumeComponent, NasaNeoComponent, LoaderComponent, NasaApodComponent, DragonBallComponent, CounterComponent, AboutComponent, CodeSnippetComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -37,6 +39,7 @@ import { MessageService } from 'primeng/api';
     TableModule,
     FormsModule,
     InputTextModule,
+    ClipboardModule,
     ButtonModule,
     ReactiveFormsModule,
     CardModule,

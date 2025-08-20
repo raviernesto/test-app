@@ -1,0 +1,73 @@
+
+
+.code-snippet-container.small {
+	max-width: 95%;
+	background: #23272f;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+	padding: 1rem;
+	margin: 1rem auto;
+	font-family: 'Fira Mono', 'Consolas', monospace;
+	position: relative;
+}
+.snippet-header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	margin-bottom: 0.3rem;
+}
+.snippet-title {
+	color: #90caf9;
+	font-weight: bold;
+	font-size: 1rem;
+}
+.snippet-desc {
+	color: #b0bec5;
+	font-size: 0.85rem;
+	margin-top: 2px;
+}
+.copy-btn {
+	background: #1976d2;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	padding: 0.3rem 0.7rem;
+	margin-left: 0.5rem;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	font-size: 0.95rem;
+	transition: background 0.2s;
+}
+.copy-btn:hover {
+	background: #1565c0;
+}
+.material-icons {
+	font-size: 1rem;
+	margin-right: 0.2rem;
+}
+.snippet-pre {
+	background: #1a1d23;
+	color: #e0e0e0;
+	border-radius: 6px;
+	padding: 0.7rem;
+	font-size: 0.95rem;
+	overflow-x: auto;
+}
+.copy-feedback {
+	position: absolute;
+	top: 8px;
+	right: 16px;
+	background: #43a047;
+	color: #fff;
+	padding: 0.2rem 0.7rem;
+	border-radius: 4px;
+	font-size: 0.9rem;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+	animation: fadeOut 1.5s forwards;
+}
+@keyframes fadeOut {
+	0% { opacity: 1; }
+	80% { opacity: 1; }
+	100% { opacity: 0; }
+}

@@ -6,6 +6,7 @@ import { NasaApodComponent } from './pages/nasa-apod/nasa-apod.component';
 import { DragonBallComponent } from './pages/dragon-ball/dragon-ball.component';
 import { CounterComponent } from './pages/counter/counter.component';
 import { AboutComponent } from './pages/about/about.component';
+import { CodeSnippetComponent } from './pages/code-snippet/code-snippet.component';
 
 const routes: Routes = [
   {
@@ -33,7 +34,7 @@ const routes: Routes = [
     component: CounterComponent,
     title: 'Counter',
   },
-    {
+  {
     path: 'about',
     component: AboutComponent,
     title: 'About',
@@ -42,6 +43,11 @@ const routes: Routes = [
     path: '',
     redirectTo: 'dragon-ball',
     pathMatch: 'full',
+  },
+  {
+    path: 'code-snippet',
+    component: CodeSnippetComponent,
+    title: 'Code Snippet',
   },
 ];
 

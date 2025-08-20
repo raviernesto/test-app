@@ -10,6 +10,16 @@
   font-size: 0.85em; /* Slightly increased base font size */
 }
 
+
+@media print {
+  .resume-container {
+    background: #fff !important;
+    box-shadow: none !important;
+  }
+  .resume-container h2 {
+    background: #f4f6fb !important;
+  }
+}
 header {
   background: #f7f9fa;
   padding: 7px 0 4px 0;
@@ -138,6 +148,23 @@ strong {
 }
 
 
+@media print {
+  body, html, .goku-cloud-card, header, section, h2, h3, .skills-columns, .skills-column {
+    background: none !important;
+    box-shadow: none !important;
+  }
+  *:not(.resume-container) {
+    background: none !important;
+    box-shadow: none !important;
+  }
+  .resume-container {
+    background: #fff !important;
+    box-shadow: none !important;
+  }
+  h2 {
+    background: #f4f6fb !important;
+  }
+}
 .goku-cloud-card {
   display: inline-block; /* Or 'block' depending on layout */
   background-color: #fff; /* White background */
@@ -152,3 +179,11 @@ strong {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Optional subtle shadow */
   line-height: 1.4; /* Improve readability */
 }
+
+  @media print {
+    h2 {
+      background: #f4f6fb !important;
+    }
+  }
+
+
