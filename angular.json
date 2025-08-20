@@ -35,7 +35,7 @@
           },
           "configurations": {
             "production": {
-              "budgets": [
+                "budgets": [
                 {
                   "type": "initial",
                   "maximumWarning": "1.5mb",
@@ -47,7 +47,8 @@
                   "maximumError": "8kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/test-app/"
             },
             "development": {
               "buildOptimizer": false,
