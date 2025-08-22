@@ -7,6 +7,7 @@ import { DragonBallComponent } from './pages/dragon-ball/dragon-ball.component';
 import { CounterComponent } from './pages/counter/counter.component';
 import { AboutComponent } from './pages/about/about.component';
 import { CodeSnippetComponent } from './pages/code-snippet/code-snippet.component';
+import { TrickyQuestionsComponent } from './pages/tricky-questions/tricky-questions.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,11 @@ const routes: Routes = [
     path: 'about',
     component: AboutComponent,
     title: 'About',
+  },
+  {
+    path: 'tricky-questions',
+    component: TrickyQuestionsComponent,
+    title: 'Tricky Interview Questions',
   },
   {
     path: '',

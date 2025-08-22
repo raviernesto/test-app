@@ -21,6 +21,14 @@ export class NavBarComponent implements OnInit {
       route: '/nasa-neo',
     },
     {
+      label: 'Code Snippet',
+      route: '/code-snippet',
+    },
+    {
+      label: 'Tricky Questions',
+      route: '/tricky-questions',
+    },
+    {
       label: 'About',
       route: '/about',
     },

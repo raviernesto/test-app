@@ -30,8 +30,9 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { CodeSnippetComponent } from './pages/code-snippet/code-snippet.component';
 import { ClipboardModule } from 'ngx-clipboard';
+import { TrickyQuestionsComponent } from './pages/tricky-questions/tricky-questions.component';
 @NgModule({
-  declarations: [AppComponent, NavBarComponent, ResumeComponent, NasaNeoComponent, LoaderComponent, NasaApodComponent, DragonBallComponent, CounterComponent, AboutComponent, CodeSnippetComponent],
+  declarations: [AppComponent, NavBarComponent, ResumeComponent, NasaNeoComponent, LoaderComponent, NasaApodComponent, DragonBallComponent, CounterComponent, AboutComponent, CodeSnippetComponent, TrickyQuestionsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

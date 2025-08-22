@@ -1,0 +1,27 @@
+<div class="p-3">
+  <div class="tricky-questions-list">
+    <div *ngFor="let q of questions; let i = index" class="question-card">
+      <h3>{{ i + 1 }}. {{ q.title }}</h3>
+      <pre class="code-block"><code [innerText]="q.code"></code></pre>
+      <button (click)="copyCode(q.code)" class="copy-btn">Copy Code</button>
+      <button
+        (click)="toggleOutput(i)"
+        class="copy-btn"
+        style="margin-left: 0.5rem"
+      >
+        {{ showOutput[i] ? "Hide Output" : "Show Output" }}
+      </button>
+      <div class="output" *ngIf="showOutput[i]">
+        <strong>Output:</strong>
+        <ul>
+          <li *ngFor="let out of q.output">{{ out }}</li>
+        </ul>
+      </div>
+      <div class="explanation">
+        <strong>Explanation:</strong>
+        <span [innerHTML]="q.explanation"></span>
+      </div>
+      <hr />
+    </div>
+  </div>
+</div>
