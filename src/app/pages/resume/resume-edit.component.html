@@ -1,0 +1,126 @@
+<!-- src/app/resume/resume.component.html -->
+<div
+  style="margin: 1em"
+  *ngIf="!access"
+  style="display: flex; align-items: center; justify-content: center"
+  class="apod-error-creative"
+>
+  <div class="goku-cloud-card">🚫🪐{{ accessInfo }}</div>
+  <img
+    [src]="gokuImagePath"
+    alt="Goku"
+    style="
+      width: 350px;
+      height: 500px;
+      vertical-align: middle;
+      margin-right: 4px;
+    "
+    title="Goku!"
+  />
+</div>
+
+<div *ngIf="access" class="resume-container">
+  <header>
+    <h1>{{ name }}</h1>
+    <p>
+      <span class="icon">✉️</span>
+      <strong>Email:</strong> <a href="mailto:{{ email }}">{{ email }}</a> |
+      <strong>Phone:</strong> {{ phone }} | <strong>Location:</strong>
+      {{ location }}
+      <br />
+      <strong>LinkedIn:</strong>
+      <a href="{{ linkedin }}" target="_blank">{{ linkedin }}</a>
+    </p>
+  </header>
+
+  <section>
+    <h2>Personal Summary</h2>
+    <p>{{ summary }}</p>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="skills-columns">
+      <div class="skills-column">
+        <ng-container *ngFor="let group of skills; let i = index">
+          <div *ngIf="i % 2 === 0" class="skill-category">
+            <h3>{{ group.category }}</h3>
+            <ul>
+              <li *ngFor="let skill of group.items">{{ skill }}</li>
+            </ul>
+          </div>
+        </ng-container>
+      </div>
+      <div class="skills-column">
+        <ng-container *ngFor="let group of skills; let i = index">
+          <div *ngIf="i % 2 === 1" class="skill-category">
+            <h3>{{ group.category }}</h3>
+            <ul>
+              <li *ngFor="let skill of group.items">{{ skill }}</li>
+            </ul>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <div *ngFor="let job of experience" class="job-entry">
+      <h3>{{ job.title }} at {{ job.company }}</h3>
+      <p class="dates">{{ job.dates }}</p>
+      <ul>
+        <li *ngFor="let point of job.description">{{ point }}</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Accomplishments</h2>
+    <ul>
+      <li *ngFor="let accomplishment of accomplishments">
+        {{ accomplishment }}
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <div *ngFor="let project of projects" class="project-entry">
+      <h3>{{ project.name }}</h3>
+      <p><strong>Technologies:</strong></p>
+      <ul>
+        <li *ngFor="let tech of project.techList">{{ tech }}</li>
+      </ul>
+      <ul>
+        <li *ngFor="let point of project.description">{{ point }}</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div *ngFor="let edu of education" class="education-entry">
+      <h3>{{ edu.degree }}</h3>
+      <p>{{ edu.institution }} | {{ edu.dates }}</p>
+      <p>{{ edu.details }}</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Languages</h2>
+    <ul>
+      <li *ngFor="let lang of languages">
+        {{ lang.name }}: {{ lang.proficiency }}
+      </li>
+    </ul>
+    <!-- You could add the proficiency bars visually with CSS, but keep the text for ATS -->
+  </section>
+
+  <section>
+    <h2>Certifications</h2>
+    <ul>
+      <li *ngFor="let cert of certifications">{{ cert }}</li>
+    </ul>
+  </section>
+</div>

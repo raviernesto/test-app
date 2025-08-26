@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ResumeComponent } from './pages/resume/resume.component';
+import { ResumeEditComponent } from './pages/resume/resume-edit.component';
 import { NasaNeoComponent } from './pages/nasa-neo/nasa-neo.component';
 import { NasaApodComponent } from './pages/nasa-apod/nasa-apod.component';
 import { DragonBallComponent } from './pages/dragon-ball/dragon-ball.component';
@@ -10,6 +11,11 @@ import { CodeSnippetComponent } from './pages/code-snippet/code-snippet.componen
 import { TrickyQuestionsComponent } from './pages/tricky-questions/tricky-questions.component';
 
 const routes: Routes = [
+  {
+    path: 'resume-edit',
+    component: ResumeEditComponent,
+    title: 'Edit Resume',
+  },
   {
     path: 'resume',
     component: ResumeComponent,

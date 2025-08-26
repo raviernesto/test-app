@@ -37,6 +37,10 @@ export class NavBarComponent implements OnInit {
       route: '/resume',
     },
     {
+      label: 'Firebase Resume',
+      route: '/resume-edit',
+    },
+    {
       label: 'Contact',
       subItems: [
         { label: 'Email', route: '/contact/email' },

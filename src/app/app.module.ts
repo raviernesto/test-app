@@ -17,6 +17,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { NavBarComponent } from './common/loader/nav-bar/nav-bar.component';
 import { MenubarModule } from 'primeng/menubar';
 import { ResumeComponent } from './pages/resume/resume.component';
+import { ResumeEditComponent } from './pages/resume/resume-edit.component';
 import { NasaNeoComponent } from './pages/nasa-neo/nasa-neo.component';
 import { LoaderComponent } from './common/loader/loader.component';
 import { NasaApodComponent } from './pages/nasa-apod/nasa-apod.component';
@@ -31,8 +32,11 @@ import { MessageService } from 'primeng/api';
 import { CodeSnippetComponent } from './pages/code-snippet/code-snippet.component';
 import { ClipboardModule } from 'ngx-clipboard';
 import { TrickyQuestionsComponent } from './pages/tricky-questions/tricky-questions.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { environment } from '../environments/environment';
 @NgModule({
-  declarations: [AppComponent, NavBarComponent, ResumeComponent, NasaNeoComponent, LoaderComponent, NasaApodComponent, DragonBallComponent, CounterComponent, AboutComponent, CodeSnippetComponent, TrickyQuestionsComponent],
+  declarations: [AppComponent, NavBarComponent, ResumeComponent, ResumeEditComponent, NasaNeoComponent, LoaderComponent, NasaApodComponent, DragonBallComponent, CounterComponent, AboutComponent, CodeSnippetComponent, TrickyQuestionsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -50,7 +54,9 @@ import { TrickyQuestionsComponent } from './pages/tricky-questions/tricky-questi
     MenubarModule,
     MatSnackBarModule,
   ToastModule,
-    StoreModule.forRoot(({ count: counterReducer })),
+  StoreModule.forRoot(({ count: counterReducer })),
+  AngularFireModule.initializeApp(environment.firebase),
+  AngularFirestoreModule,
     
   ],
   providers: [
