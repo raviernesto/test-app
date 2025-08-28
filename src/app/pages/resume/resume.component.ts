@@ -45,7 +45,7 @@ export class ResumeComponent {
     },
     {
       category: '🛠️ Tools & Platforms',
-      items: ['Node.js', 'Git', 'GitHub', 'ADFS'],
+      items: ['Node.js', 'Git', 'GitHub', 'ADFS', 'Firebase'],
     },
     {
       category: '🧠 Concepts & Methodologies',
