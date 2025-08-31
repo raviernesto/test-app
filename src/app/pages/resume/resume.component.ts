@@ -18,6 +18,7 @@ export class ResumeComponent {
   phone = '8220777973';
   location = 'Madurai, TamilNadu, India 625017';
   linkedin = 'https://www.linkedin.com/in/ravishankars123';
+  portfolio = 'https://ravi-webfolio.netlify.app';
 
   // --- Summary ---
   summary = `Results-driven Angular developer with over 3 years of hands-on experience in building scalable and high-performance front-end applications. Proficient in Angular, TypeScript, and RESTful services, with a proven track record of delivering robust solutions for enterprise clients. Strong collaborator with experience in Agile teams, code reviews, and cross-functional API integration. Recognized for improving user satisfaction, performance, and system security. Seeking a challenging role in a forward-thinking organization to apply technical skills to mission-critical projects.`;

@@ -4,9 +4,9 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
-  selector: 'app-resume',
-  templateUrl: './resume.component.html',
-  styleUrls: ['./resume.component.css'],
+  selector: 'app-resume-edit',
+  templateUrl: './resume-edit.component.html',
+  styleUrls: ['./resume-edit.component.css'],
 })
 export class ResumeEditComponent implements OnInit {
   constructor(private firestore: AngularFirestore) {}
@@ -18,6 +18,7 @@ export class ResumeEditComponent implements OnInit {
   phone: any;
   location: any;
   linkedin: any;
+  portfolio: any;
   summary: any;
   skills: any;
   experience: any;
@@ -60,6 +61,7 @@ export class ResumeEditComponent implements OnInit {
           this.education = data.education;
           this.languages = data.languages;
           this.certifications = data.certifications;
+          this.portfolio = data.portfolio;
         }
       });
   }
