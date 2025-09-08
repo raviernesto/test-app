@@ -1,18 +1,72 @@
-<div class="p-3">
-  <div
-    class="code-snippet-container small"
-    *ngFor="let item of codeSnipperData; let i = index"
-  >
-    <div class="snippet-header">
-      <div>
-        <span class="snippet-title">{{ i+1 }}.&nbsp;{{ item.title }}</span>
-        <div class="snippet-desc">{{ item.description }}</div>
+<div class="snippet-wrapper">
+  <div class="snippet-overlay-controls" *ngIf="!hasAccess">
+    <p-button
+      (click)="showDialog()"
+      icon="pi pi-lock"
+      label="Unlock Snippets"
+    />
+    <span class="status" [ngStyle]="{ color: '#f57c00' }"
+      >Locked - enter password to view clearly</span
+    >
+  </div>
+  <!-- <div class="snippet-overlay-controls" *ngIf="hasAccess">
+    <p-button
+      (click)="lock()"
+      icon="pi pi-lock-open"
+      severity="danger"
+      label="Lock"
+    />
+    <span class="status" [ngStyle]="{ color: '#2e7d32' }">Unlocked</span>
+  </div> -->
+  <div class="p-3">
+    <div
+      class="code-snippet-container small"
+      [ngClass]="hasAccess ? 'content-visible' : 'content-blurred'"
+      *ngFor="let item of codeSnipperData; let i = index"
+    >
+      <div class="snippet-header">
+        <div>
+          <span class="snippet-title">{{ i + 1 }}.&nbsp;{{ item.title }}</span>
+          <div class="snippet-desc">{{ item.description }}</div>
+        </div>
+        <button class="copy-btn" (click)="copyCode(codeBlock)">
+          <span class="material-icons">content_copy</span> Copy
+        </button>
       </div>
-      <button class="copy-btn" (click)="copyCode(codeBlock)">
-        <span class="material-icons">content_copy</span> Copy
-      </button>
+      <pre class="snippet-pre"><code #codeBlock>{{ item.code }}</code></pre>
+      <div *ngIf="copied" class="copy-feedback">Copied!</div>
     </div>
-    <pre class="snippet-pre"><code #codeBlock>{{ item.code }}</code></pre>
-    <div *ngIf="copied" class="copy-feedback">Copied!</div>
   </div>
 </div>
+
+<!-- legacy button removed -->
+<p-dialog
+  header="Unlock"
+  [modal]="true"
+  [(visible)]="visible"
+  styleClass="unlock-dialog"
+  [style]="{ width: '20rem' }"
+>
+  <span class="p-text-secondary block mb-2"
+    >Enter password to view snippets.</span
+  >
+  <div class="flex items-center gap-4 mb-2">
+    <label for="password" class="font-semibold w-24">Password</label>
+    <input
+      pInputText
+      id="password"
+      type="password"
+      [(ngModel)]="password"
+      class="flex-auto"
+      autocomplete="off"
+      (keyup.enter)="verifyPassword()"
+    />
+  </div>
+  <div *ngIf="passwordError" class="p-error mb-3" style="color: #f44336">
+    {{ passwordError }}
+  </div>
+  <div class="flex justify-end gap-2">
+    <p-button label="Cancel" severity="secondary" (click)="visible = false" />
+    <p-button label="Unlock" (click)="verifyPassword()" />
+  </div>
+</p-dialog>

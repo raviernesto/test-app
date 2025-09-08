@@ -4,10 +4,14 @@ import { codeSnippet } from './code-snippet-data';
 @Component({
   selector: 'app-code-snippet',
   templateUrl: './code-snippet.component.html',
-  styleUrls: ['./code-snippet.component.css']
+  styleUrls: ['./code-snippet.component.css'],
 })
 export class CodeSnippetComponent {
   codeSnipperData = codeSnippet;
+  // Start blurred (no access)
+  hasAccess: boolean = false;
+  // Hardcoded password (consider moving to env or backend if sensitive)
+  private readonly ACCESS_PASSWORD = 'showcodes';
   @Input() code: string = `const string = 'AEIOU';
 let reverse = string.split('').reverse().join('');
 console.log(reverse);
@@ -18,6 +22,12 @@ for (let i = string.length - 1; i >= 0; i--) {
 console.log(reversed)`;
 
   copied = false;
+  visible: boolean = true;
+  password: string = '';
+  passwordError: string = '';
+  showDialog() {
+    this.visible = true;
+  }
 
   copyCode(codeBlock: HTMLElement) {
     const text = codeBlock.textContent || '';
@@ -33,6 +43,28 @@ console.log(reversed)`;
       document.body.removeChild(textarea);
     }
     this.copied = true;
-    setTimeout(() => this.copied = false, 1200);
+    setTimeout(() => (this.copied = false), 1200);
+  }
+
+  verifyPassword() {
+    if (!this.password) {
+      this.passwordError = 'Password required';
+      this.hasAccess = false;
+      return;
+    }
+    if (this.password === this.ACCESS_PASSWORD) {
+      this.hasAccess = true;
+      this.passwordError = '';
+      this.visible = false;
+    } else {
+      this.hasAccess = false;
+      this.passwordError = 'Incorrect password';
+    }
+  }
+
+  lock() {
+    this.hasAccess = false;
+    this.password = '';
+    this.passwordError = '';
   }
 }

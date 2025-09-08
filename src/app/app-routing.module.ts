@@ -9,6 +9,7 @@ import { CounterComponent } from './pages/counter/counter.component';
 import { AboutComponent } from './pages/about/about.component';
 import { CodeSnippetComponent } from './pages/code-snippet/code-snippet.component';
 import { TrickyQuestionsComponent } from './pages/tricky-questions/tricky-questions.component';
+import { AngularConceptComponent } from './pages/angular-concept/angular-concept.component';
 
 const routes: Routes = [
   {
@@ -61,6 +62,11 @@ const routes: Routes = [
     component: CodeSnippetComponent,
     title: 'Code Snippet',
   },
+  {
+    path: 'angular-concept',
+    component: AngularConceptComponent,
+    title: 'Angular Concept',
+  }
 ];
 
 @NgModule({

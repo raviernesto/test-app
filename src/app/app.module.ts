@@ -35,8 +35,30 @@ import { TrickyQuestionsComponent } from './pages/tricky-questions/tricky-questi
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
+import { DialogModule } from 'primeng/dialog';
+import { FilterPipe } from './pipes/filter-pipe';
+import {ErrorStateMatcher} from '@angular/material/core';
+import {NgIf} from '@angular/common';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { AngularConceptComponent } from './pages/angular-concept/angular-concept.component';
 @NgModule({
-  declarations: [AppComponent, NavBarComponent, ResumeComponent, ResumeEditComponent, NasaNeoComponent, LoaderComponent, NasaApodComponent, DragonBallComponent, CounterComponent, AboutComponent, CodeSnippetComponent, TrickyQuestionsComponent],
+  declarations: [
+    AppComponent,
+    NavBarComponent,
+    ResumeComponent,
+    ResumeEditComponent,
+    NasaNeoComponent,
+    LoaderComponent,
+    NasaApodComponent,
+    DragonBallComponent,
+    CounterComponent,
+    AboutComponent,
+    CodeSnippetComponent,
+    TrickyQuestionsComponent,
+    FilterPipe,
+    AngularConceptComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -53,14 +75,18 @@ import { environment } from '../environments/environment';
     DropdownModule,
     MenubarModule,
     MatSnackBarModule,
-  ToastModule,
-  StoreModule.forRoot(({ count: counterReducer })),
-  AngularFireModule.initializeApp(environment.firebase),
-  AngularFirestoreModule,
-    
+    DialogModule,
+    ToastModule,
+    StoreModule.forRoot({ count: counterReducer }),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    NgIf,
   ],
   providers: [
-  MessageService,
+    MessageService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HeadersInterceptor,

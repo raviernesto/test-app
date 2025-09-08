@@ -1,0 +1,43 @@
+<div class="p-3">
+  <div class="row justify-content-center">
+    <!-- <div class="col-12 flex align-items-center justify-content-center">
+      <button class="btn-style">Create</button>
+    </div> -->
+  </div>
+  <div
+    class="code-snippet-container small"
+    *ngFor="let item of codeSnipperData; let i = index"
+  >
+    <div class="snippet-header">
+      <div>
+        <span class="snippet-title">{{ i + 1 }}.&nbsp;{{ item.title }}</span>
+        <div class="snippet-desc" *ngIf="isOpen(i)">{{ item.description }}</div>
+      </div>
+      <div class="flex align-items-center gap-2 justify-content-end">
+        <button class="copy-btn" (click)="toggle(i)">
+          <span class="material-icons">{{
+            isOpen(i) ? "expand_less" : "expand_more"
+          }}</span>
+          {{ isOpen(i) ? "Hide" : "Show" }}
+        </button>
+        <button
+          class="copy-btn"
+          *ngIf="isOpen(i)"
+          (click)="copyCode(item.code)"
+        >
+          <span class="material-icons">content_copy</span> Copy
+        </button>
+      </div>
+    </div>
+    <div *ngIf="isOpen(i)">
+      <pre class="snippet-pre"><code>{{ item.code }}</code></pre>
+      <div *ngIf="copied" class="copy-feedback">Copied!</div>
+      <!-- <div class="row justify-content-center">
+        <div class="col-12 flex align-items-center justify-content-center">
+          <button class="btn-style">Delete</button>
+          <button class="btn-style">Edit</button>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
