@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { debounce, debounceTime, distinctUntilChanged, take } from 'rxjs';
@@ -34,10 +34,12 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./about.component.css'],
 })
 export class AboutComponent {
+  value = 'data';
   emailFormControl = new FormControl('', [
     Validators.required,
   ]);
   @ViewChild('inputElement', { static: true }) nameInput!: ElementRef<HTMLInputElement>;
+  receivedData: any;
   // ...existing code...
 
   ngAfterViewInit() {
@@ -78,5 +80,9 @@ export class AboutComponent {
 
   onReset() {
     this.store.dispatch(reset());
+  }
+
+  receive(data: any){
+    this.receivedData = data;
   }
 }

@@ -1,167 +1,262 @@
-// src/app/resume/resume.component.ts
-
-import { Component } from '@angular/core';
+// Single, valid component definition
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-resume',
-  templateUrl: './resume.component.html', // This points to the HTML template below
-  styleUrls: ['./resume.component.css'], // This points to the CSS below
+  templateUrl: './resume.component.html',
+  styleUrls: ['./resume.component.css'],
 })
-export class ResumeComponent {
-  //Access
+export class ResumeComponent implements OnInit {
+  private originalTitle = document.title;
   access = true;
-  accessInfo = 'Hey there! This resume is kinda like my secret training techniques - it\'s private! But don\'t worry, if you really wanna see it, just contact me and I\'ll be happy to share! I promise it\'ll be worth the wait, just like when I finally master a new Kamehameha! Hehe!'
+  accessInfo = `Hey there! This resume is kinda like my secret training techniques - it's private! But don't worry, if you really wanna see it, just contact me and I'll be happy to share! I promise it'll be worth the wait, just like when I finally master a new Kamehameha! Hehe!`;
   gokuImagePath = './assets/goku.png';
-  // --- Personal Info ---
   name = 'Ravi Shankar. S';
+  jobTitle = 'Frontend Engineer | Angular | React | TypeScript';
   email = 'raviernesto123@gmail.com';
   phone = '8220777973';
   location = 'Madurai, TamilNadu, India 625017';
   linkedin = 'https://www.linkedin.com/in/ravishankars123';
   portfolio = 'https://ravi-webfolio.netlify.app';
 
-  // --- Summary ---
-  summary = `Results-driven Angular developer with over 3 years of hands-on experience in building scalable and high-performance front-end applications. Proficient in Angular, TypeScript, and RESTful services, with a proven track record of delivering robust solutions for enterprise clients. Strong collaborator with experience in Agile teams, code reviews, and cross-functional API integration. Recognized for improving user satisfaction, performance, and system security. Seeking a challenging role in a forward-thinking organization to apply technical skills to mission-critical projects.`;
+  summary =
+    'Frontend Engineer with 3+ years of experience in Angular and React.js, skilled in TypeScript, JavaScript (ES6+), and Java (OOP fundamentals). Proficient in Component-Based Architecture, Node.js, NPM, RESTful API Integration, and State Management (NgRx / Redux). Experienced in CI/CD Pipelines (Tekton, GitHub Actions, GitLab CI) and Google Cloud Platform (Cloud Build, Cloud Run, Firebase Hosting, Cloud Storage). Strong in UI/UX Design, Performance Optimization, and Agile / Scrum collaboration.';
 
-  // --- Skills ---
-  skills = [
+  // Refined skill categories (optimized wording for ATS + readability)
+  topSkillCategories: { label: string; items: string[] }[] = [
     {
-      category: '🔧 Programming Languages',
-      items: ['TypeScript', 'JavaScript', 'Java', 'C Programming'],
-    },
-    {
-      category: '🧩 Frameworks & Libraries',
+      label: 'Core Technical',
       items: [
-        'Angular (including Angular Material & Angular frameworks)',
-        'PrimeNG',
-        'PrimeFlex',
-        'Bootstrap',
-        'RxJS',
-        "NgRx"
+        'Angular',
+        'React.js',
+        'TypeScript',
+        'JavaScript (ES6+)',
+        'Node.js',
+        'Java (OOP basics)',
+        'HTML5',
+        'CSS3 / SCSS',
+        'Component-Based Architecture',
+        'Responsive Web Design',
+        'State Management (NgRx / Redux)',
+        'Reusable UI Components',
       ],
     },
     {
-      category: '🌐 Web Technologies',
-      items: ['HTML', 'CSS', 'REST API Integration', 'Front-end Optimization'],
+      label: 'API & Data Handling',
+      items: [
+        'RESTful API Integration',
+        'API-driven Development',
+        'Authentication & Authorization (JWT / OAuth)',
+        'JSON / XML Parsing',
+      ],
     },
     {
-      category: '🛠️ Tools & Platforms',
-      items: ['Node.js', 'Git', 'GitHub', 'ADFS', 'Firebase'],
+      label: 'Development Tools',
+      items: [
+        'Git',
+        'GitHub',
+        'GitLab',
+        'NPM / Yarn',
+        'Webpack',
+        'Vite',
+        'Postman',
+        'Swagger',
+      ],
     },
     {
-      category: '🧠 Concepts & Methodologies',
-      items: ['Object-Oriented Programming (OOP)', 'Testing and Deployment'],
+      label: 'Performance Optimization',
+      items: [
+        'Lazy Loading',
+        'Code Splitting',
+        'Cross-Browser Compatibility',
+        'UI Performance Optimization',
+        'Caching Strategies',
+      ],
+    },
+    {
+      label: 'Methodology & Collaboration',
+      items: [
+        'Agile / Scrum',
+        'Sprint Planning',
+        'Cross-Functional Collaboration',
+        'Problem Solving',
+        'Attention to Detail',
+      ],
+    },
+    {
+      label: 'Testing & Quality Assurance',
+      items: [
+        'Unit Testing (Jasmine / Jest)',
+        'Debugging & Troubleshooting',
+        'Clean Code Practices',
+        'Continuous Integration / Continuous Deployment (CI/CD)',
+      ],
+    },
+    {
+      label: 'Cloud & Deployment',
+      items: [
+        'Google Cloud Platform (GCP)',
+        'Tekton CI/CD',
+        'Cloud Build',
+        'Cloud Run',
+        'Firebase Hosting',
+        'Cloud Storage',
+        'Docker (Basic)',
+        'GitHub Actions',
+        'GitLab CI',
+      ],
+    },
+    {
+      label: 'UI & Accessibility',
+      items: [
+        'PrimeNG',
+        'Material UI (MUI)',
+        'Bootstrap',
+        'Pixel-Perfect UI Development',
+        'Reusable Component Libraries',
+        'Design Consistency',
+      ],
     },
   ];
 
-  // --- Experience ---
   experience = [
     {
       title: 'Associate Software Engineer',
       company: 'Tech Mahindra',
       dates: '02/2022 - Current',
       description: [
-        `Championed the incorporation of human factors principles into the application's user interface, resulting in a 25% improvement in overall user satisfaction.`,
-        'Optimized JavaScript and Angular codebases, boosting front-end performance by 20% through best practices and modular design.',
-        'Developed and deployed 4 REST APIs, enabling seamless cross-team data integration and accelerating project delivery by 25%; recognized as the youngest team member to ship production-ready code.',
-        'Implemented ADFS configurations for three enterprise applications, enhancing security compliance by 40% and reducing access-related issues.',
-        'Reviewed over 40+ pull requests, identifying defects early and improving front-end code quality by 15%, while mentoring junior developers on Angular best practices.',
-        'Collaborated with 3+ backend teams to integrate scalable RESTful APIs, resulting in a 2x improvement in application load handling and 30% boost in system responsiveness.',
+        'Delivered Angular & React SPA features with pixel-perfect, responsive UI and state management (NgRx / Redux), boosting UX by 25%.',
+        'Integrated RESTful APIs (Postman / Swagger) and optimized performance via Lazy Loading, Code Splitting & Change Detection tuning.',
+        'Enhanced Cross-Browser Compatibility, Accessibility (A11y) and UI consistency using reusable design tokens.',
+        'Automated testing & deployments using Tekton CI/CD, GitHub Actions and Google Cloud Run cutting regression defects by 15%.',
+        'Debugged RxJS / async issues and optimized render performance improving delivery efficiency.',
+        'Collaborated in Agile / Scrum sprints and mentored peers on Clean Code & Component-Based Architecture.',
+        'Expanded unit testing coverage (Jasmine / Jest) and introduced ES6+ JavaScript & TypeScript patterns for maintainable, testable code.',
       ],
     },
-    // Add more experience entries here if applicable
   ];
 
-  // --- Accomplishments ---
   accomplishments = [
-    'Recognized with the highest rating in the company twice, reflecting exceptional performance and dedication',
-    'Consistently delivered high-quality results, contributing to key projects and business success',
+    'Built reusable UI component libraries improving delivery speed and design consistency.',
+    'Recognized twice with top performance rating for on-time delivery of Angular / React / API-driven features.',
+    'Strengthened Tekton-based CI/CD pipelines and testing coverage enhancing release reliability.',
   ];
 
-  // --- Projects ---
   projects = [
     {
-      name: 'Supplier information metrics (SIM)',
+      name: 'Supplier Information Metrics (SIM)',
       technologies:
-        'SonarQube, StyleLint, FOSSA, Angular Signals, TypeScript, JavaScript, CSS, HTML, JSON, RESTful API, Angular 16+, ADFS, PrimeNG, Bootstrap, Git',
+        'Angular 16+, TypeScript, Signals, RESTful API Integration, PrimeNG, Bootstrap, Git, SonarQube, StyleLint, FOSSA, ADFS, CI/CD',
       description: [
-        'Led efforts in migrating applications from Pivotal Cloud Foundry (PCF) to Google Cloud Platform (GCP) for Ford',
-        'Collaborated with clients to gather requirements and develop scalable applications.',
-        'Identified and resolved critical issues to enhance system performance.',
-        'Presented client-requested changes on time, aligning with project milestones.',
+        'Delivered Angular SPA modules using Component-Based Architecture and reusable components.',
+        'Implemented responsive layouts (desktop + mobile) reinforcing Responsive Web Design best practices.',
+        'Adopted Lazy Loading and Code Splitting to reduce initial bundle size.',
+        'Integrated RESTful APIs with Postman / Swagger contract checks supporting API-driven development.',
+        'Applied Clean Code Practices and accessibility (A11y) adjustments improving maintainability.',
       ],
     },
     {
-      name: 'Sourcing for quality (SFQ)',
+      name: 'Sourcing For Quality (SFQ)',
       technologies:
-        'SonarQube, StyleLint, FOSSA, Angular Signals, TypeScript, JavaScript, CSS, HTML, JSON, RESTful API, Angular 16+, ADFS, PrimeNG, Bootstrap, and Git',
+        'React.js 18+, TypeScript, RESTful APIs, Redux Toolkit, React Query, Bootstrap, SCSS, Git, Tekton CI/CD, Google Cloud Run, Axios',
       description: [
-        'Played a key role in migrating applications from Pivotal Cloud Foundry (PCF) to Google Cloud Platform (GCP).',
-        'Conducted requirement analysis, development, and testing.',
-        'Streamlined issue identification and resolution to optimize workflow',
-        'Provided timely implementation of client requests, supporting project success and continuity.',
+        'Built reusable React.js components and implemented Redux Toolkit + React Query for predictable state/data handling and scalable UI delivery.',
+        'Optimized performance with React.memo, useCallback, and code-splitting while ensuring cross-browser, responsive layouts using modern SCSS.',
+        'Engineered Tekton CI/CD pipelines deploying to Google Cloud Run (Cloud Build), accelerating automated build/test/release cycles.',
       ],
     },
     {
       name: 'Service Appointment Tracking System (SATS)',
       technologies:
-        'JSON, RESTful API, TypeScript, JavaScript, CSS, HTML, Angular 16+, ADFS, PrimeNG, Bootstrap, Git',
+        'Angular, TypeScript, RESTful API Integration, PrimeNG, Bootstrap, Git, Jasmine / Jest',
       description: [
-        'Developed, tested, and debugged applications to maintain operational efficiency.',
-        'Provided quick resolutions to critical issues, improving the user experience.',
-        'Managed and executed client change requests, adhering to deadlines.',
+        'Built reusable form and table components accelerating API-driven feature rollout.',
+        'Applied debugging & troubleshooting to resolve race conditions in asynchronous REST calls.',
+        'Expanded unit testing coverage (Jasmine / Jest) ensuring stability across releases.',
       ],
     },
     {
-      name: 'Global catalogue',
+      name: 'Global Catalogue',
       technologies:
-        'Angular 10+, PrimeNG, Bootstrap, CSS, HTML, JSON, RESTful API, TypeScript, and JavaScript',
+        'Angular 10+, TypeScript, RESTful APIs, PrimeNG, Bootstrap, Git, Webpack',
       description: [
-        'Developed and tested scalable applications based on client needs',
-        'Debugged and resolved system errors, ensuring smooth functionality',
-        'Distributed critical client updates within scheduled timeframes, maintaining service reliability.',
+        'Refactored legacy components into modular, reusable libraries reducing code duplication.',
+        'Optimized bundle via Webpack configuration and Code Splitting.',
+        'Ensured Pixel-Perfect UI alignment and A11y improvements across product pages.',
       ],
     },
-    // Add more project entries
   ];
 
-  // --- Education ---
   education = [
     {
       degree: 'Bachelor of Engineering: Computer Science',
       institution: 'PSNA College Of Engineering And Technology, Dindigul',
       dates: '2018 - 2022',
-      details: 'Graduated with a 7.86 GPA, recognized for academic excellence.',
+      details:
+        'Graduated with 7.86 GPA; strong foundation in software engineering principles.',
     },
     {
       degree: 'HSC (12th Grade): Computer Science',
-      institution: 'St.Michael Matric Higher Secondary School, Madurai',
+      institution: 'St. Michael Matric Higher Secondary School, Madurai',
       dates: '2017 - 2018',
-      details:
-        'Achieved 87.5% overall, demonstrating consistent high performance.',
+      details: 'Score: 87.5%; consistent academic performance.',
     },
     {
       degree: 'SSLC (10th Grade)',
-      institution: 'St.Michael Matric Higher Secondary School, Madurai',
+      institution: 'St. Michael Matric Higher Secondary School, Madurai',
       dates: '2015 - 2016',
-      details:
-        'Completed with 95%, reflecting outstanding scholastic achievement.',
+      details: 'Score: 95%; distinction level achievement.',
     },
-    // Add more education entries
   ];
 
-  // --- Languages ---
   languages = [
     { name: 'Tamil', proficiency: 'First Language' },
     { name: 'English', proficiency: 'Advanced (C1)' },
     { name: 'Hindi', proficiency: 'Elementary (A2)' },
   ];
 
-  // --- Certifications ---
   certifications = [
-    'Professional Cloud Developer - Google',
-    'Introduction to Generative AI - Google',
-    'Google Cloud Fundamentals: Core Infrastructure - Google',
-    'Github Copilot - NAD',
+    'Professional Cloud Developer - Google Cloud',
+    'Introduction to Generative AI - Google Cloud',
+    'Google Cloud Fundamentals: Core Infrastructure - Google Cloud',
+    'GitHub Copilot - NAD (National Academic Depository)',
   ];
+  // skillsSummary removed – using topSkillCategories directly in template for concise ATS-friendly output
+
+  printResume() {
+    const originalTitle = document.title;
+    const desired = 'RaviShankar_Frontend_Dev_Resume';
+    document.title = desired;
+    window.print();
+    // restore after short delay (in case print dialog uses title)
+    setTimeout(() => {
+      document.title = originalTitle;
+    }, 1500);
+  }
+
+  ngOnInit(): void {
+    this.originalTitle = document.title;
+  }
+
+  @HostListener('beforeprint')
+  handleBeforePrint() {
+    document.title = 'RaviShankar_Frontend_Dev_Resume';
+  }
+
+  @HostListener('afterprint')
+  handleAfterPrint() {
+    document.title = this.originalTitle;
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  handleKeydown(ev: KeyboardEvent) {
+    if ((ev.ctrlKey || ev.metaKey) && ev.key.toLowerCase() === 'p') {
+      // set title early so native dialog picks it up
+      document.title = 'RaviShankar_Frontend_Dev_Resume';
+      // restore later (in case beforeprint not fired in some browsers)
+      setTimeout(() => {
+        document.title = this.originalTitle;
+      }, 4000);
+    }
+  }
 }

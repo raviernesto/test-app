@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { Store } from '@ngrx/store';
 import { decrement, increment, reset, warn } from 'src/app/Store/store.actions';
@@ -10,8 +10,13 @@ import { take } from 'rxjs/operators';
   styleUrls: ['./counter.component.css'],
 })
 export class CounterComponent {
+  @Input() data : any;
+  @Output() send =new EventEmitter<any>();
   constructor(private store: Store<{ count: number }>) {}
 
   count$ = this.store.select('count'); // read from store
+  sendDataToParent() {
+    this.send.emit(this.data);
+  }
 
 }

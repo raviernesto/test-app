@@ -1,5 +1,5 @@
 <div class="container">
-  <app-counter></app-counter>
+  <app-counter [data]="value" (send)="receive($event)"></app-counter>
   <div class="row justify-content-center">
     <div class="col-12 flex align-items-center justify-content-center">
       <button class="btn-style" (click)="onIncrement()">Increment</button>
@@ -7,6 +7,7 @@
       <button class="btn-style" (click)="onReset()">Reset</button>
     </div>
   </div>
+  <p>{{ receivedData }}</p>
   <div>
     <input type="text" [(ngModel)]="searchText" placeholder="Search Text" />
     <ul *ngFor="let item of list | filter : searchText">
@@ -18,7 +19,8 @@
   <form class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>Name</mat-label>
-      <input #inputElement
+      <input
+        #inputElement
         type="text"
         matInput
         [formControl]="emailFormControl"

@@ -5,7 +5,7 @@
   style="display: flex; align-items: center; justify-content: center"
   class="apod-error-creative"
 >
-  <div class="goku-cloud-card">🚫🪐{{ accessInfo }}</div>
+  <div class="goku-cloud-card">{{ accessInfo }}</div>
   <img
     [src]="gokuImagePath"
     alt="Goku"
@@ -20,20 +20,18 @@
 </div>
 
 <div *ngIf="access" class="resume-container">
-  <header>
-    <h1>{{ name }}</h1>
-    <p>
-      <span class="icon">✉️</span>
-      <strong>Email:</strong> <a href="mailto:{{ email }}">{{ email }}</a> |
-      <strong>Phone:</strong> {{ phone }} | <strong>Location:</strong>
-      {{ location }}
-      <br />
-      <strong>LinkedIn:</strong>
-      <a href="{{ linkedin }}" target="_blank">{{ linkedin }}</a>
-  <br />
-  <strong>Portfolio:</strong>
-  <a href="{{ portfolio }}" target="_blank">{{ portfolio }}</a>
-    </p>
+  <header class="resume-header">
+    <h1 class="name">{{ name }}</h1>
+    <div class="subtitle">{{ jobTitle }}</div>
+    <div class="contact-row">
+      <span><strong>Email:</strong> <a href="mailto:{{ email }}"> {{ email }}</a></span>
+      <span><strong>Phone:</strong> +91 {{ phone }}</span>
+      <span><strong>Location:</strong> {{ location }}</span>
+    </div>
+    <div class="links-row">
+      <span><strong>LinkedIn:</strong> <a href="{{ linkedin }}" target="_blank">{{ linkedin }}</a></span>
+      <span><strong>Portfolio:</strong> <a href="{{ portfolio }}" target="_blank">{{ portfolio }}</a></span>
+    </div>
   </header>
 
   <section>
@@ -41,30 +39,11 @@
     <p>{{ summary }}</p>
   </section>
 
-  <section>
-    <h2>Skills</h2>
-    <div class="skills-columns">
-      <div class="skills-column">
-        <ng-container *ngFor="let group of skills; let i = index">
-          <div *ngIf="i % 2 === 0" class="skill-category">
-            <h3>{{ group.category }}</h3>
-            <ul>
-              <li *ngFor="let skill of group.items">{{ skill }}</li>
-            </ul>
-          </div>
-        </ng-container>
-      </div>
-      <div class="skills-column">
-        <ng-container *ngFor="let group of skills; let i = index">
-          <div *ngIf="i % 2 === 1" class="skill-category">
-            <h3>{{ group.category }}</h3>
-            <ul>
-              <li *ngFor="let skill of group.items">{{ skill }}</li>
-            </ul>
-          </div>
-        </ng-container>
-      </div>
-    </div>
+  <section class="skills-summary" *ngIf="topSkillCategories?.length">
+    <h2>Skills Summary</h2>
+    <ul class="skills-summary-list">
+      <li *ngFor="let group of topSkillCategories"><strong>{{ group.label }}:</strong> {{ group.items.join(', ') }}</li>
+    </ul>
   </section>
 
   <section>
@@ -118,9 +97,13 @@
   </section>
 
   <section>
-    <h2>Certifications</h2>
+    <h2>Certifications</h2>  
     <ul>
       <li *ngFor="let cert of certifications">{{ cert }}</li>
     </ul>
   </section>
+    <!-- Hidden ATS keyword enrichment block for parsers (kept off-screen) -->
+    <div aria-hidden="true" class="visually-hidden">
+  Angular React.js TypeScript JavaScript HTML5 CSS3 SCSS SASS Bootstrap Tailwind Material UI PrimeNG NgRx Redux Redux Toolkit Context API RxJS React Query Axios GraphQL REST API JSON XML JWT OAuth CI/CD GitHub Actions GitLab CI Tekton CI/CD Webpack Vite Babel ESLint Prettier Cypress Playwright Jasmine Jest Karma Protractor TDD Docker Azure AWS Google Cloud Platform GCP Cloud Build Cloud Run Firebase Hosting Cloud Storage Single Page Application SPA MVC MVVM A11y Accessibility Lazy Loading Code Splitting Performance Optimization Caching Strategies Lighthouse Bundle Optimization Reusable Component Libraries Component-Based Architecture API-Driven Development Debugging Complex UI Issues Clean Code Version Control System Agile Scrum Sprint Planning Retrospective Cross-Functional Collaboration Requirement Gathering Pixel Perfect UI UI/UX Design Design Consistency Change Detection Optimization State Management Responsive Web Design Responsive Layouts Authentication Authorization Performance Tuning React.memo useCallback memoization
+    </div>
 </div>

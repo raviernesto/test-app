@@ -3,6 +3,8 @@
   <div class="row justify-content-center">
     <div class="col-12 flex align-items-center justify-content-center card">
        <p class="counter">Counter {{ count$ | async }}</p>
+       <p> {{data}} </p>
+       <button (click)="sendDataToParent()">Click</button>
     </div>
   </div>
 </div>
